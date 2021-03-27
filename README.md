@@ -12,7 +12,7 @@ A new Flutter pet-project.
 * [Tween<T extends dynamic> class](https://api.flutter.dev/flutter/animation/Tween-class.html)
 * [AnimatedBuilder class](https://api.flutter.dev/flutter/widgets/AnimatedBuilder-class.html)
 * [GestureDetector class](https://api.flutter.dev/flutter/widgets/GestureDetector-class.html)
-
+* [AnimationStatus enum](https://api.flutter.dev/flutter/animation/AnimationStatus-class.html)
 
 
 

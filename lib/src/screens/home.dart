@@ -10,14 +10,20 @@ class HomeState extends State<Home> with TickerProviderStateMixin {
   AnimationController catController;
 
   onTap() {
-    catController.forward();
+    if (catController.status == AnimationStatus.completed) {
+      catController.reverse();
+      print('completed');
+    } else if (catController.status == AnimationStatus.dismissed) {
+      catController.forward();
+      print('dismissed');
+    }
   }
 
   initState() {
     super.initState();
 
     catController = AnimationController(
-      duration: Duration(seconds: 2),
+      duration: Duration(seconds: 1),
       vsync: this,
     );
 
