@@ -11,6 +11,7 @@ A new Flutter pet-project.
 * [AnimationController class](https://api.flutter.dev/flutter/animation/AnimationController-class.html)
 * [Tween<T extends dynamic> class](https://api.flutter.dev/flutter/animation/Tween-class.html)
 * [AnimatedBuilder class](https://api.flutter.dev/flutter/widgets/AnimatedBuilder-class.html)
+* [GestureDetector class](https://api.flutter.dev/flutter/widgets/GestureDetector-class.html)
 
 
 

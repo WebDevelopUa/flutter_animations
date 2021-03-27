@@ -9,6 +9,10 @@ class HomeState extends State<Home> with TickerProviderStateMixin {
   Animation<double> catAnimation;
   AnimationController catController;
 
+  onTap() {
+    catController.forward();
+  }
+
   initState() {
     super.initState();
 
@@ -23,17 +27,17 @@ class HomeState extends State<Home> with TickerProviderStateMixin {
         curve: Curves.easeIn,
       ),
     );
-
-    catController.forward();
-
   }
 
   Widget build(context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Animation'),
+        title: Text('Flutter Animation'),
       ),
-      body: buildAnimations(),
+      body: GestureDetector(
+        child: buildAnimations(),
+        onTap: onTap,
+      ),
     );
   }
 
