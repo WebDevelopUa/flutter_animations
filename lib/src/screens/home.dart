@@ -5,7 +5,29 @@ class Home extends StatefulWidget {
   HomeState createState() => HomeState();
 }
 
-class HomeState extends State<Home> {
+class HomeState extends State<Home> with TickerProviderStateMixin {
+  Animation<double> catAnimation;
+  AnimationController catController;
+
+  initState() {
+    super.initState();
+
+    catController = AnimationController(
+      duration: Duration(seconds: 2),
+      vsync: this,
+    );
+
+    catAnimation = Tween(begin: 0.0, end: 100.0).animate(
+      CurvedAnimation(
+        parent: catController,
+        curve: Curves.easeIn,
+      ),
+    );
+
+    catController.forward();
+
+  }
+
   Widget build(context) {
     return Scaffold(
       appBar: AppBar(
@@ -16,6 +38,15 @@ class HomeState extends State<Home> {
   }
 
   Widget buildAnimations() {
-    return Cat();
+    return AnimatedBuilder(
+      animation: catAnimation,
+      builder: (context, child) {
+        return Container(
+          child: child,
+          margin: EdgeInsets.only(top: catAnimation.value),
+        );
+      },
+      child: Cat(),
+    );
   }
 }
