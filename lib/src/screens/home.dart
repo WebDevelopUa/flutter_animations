@@ -12,10 +12,8 @@ class HomeState extends State<Home> with TickerProviderStateMixin {
   onTap() {
     if (catController.status == AnimationStatus.completed) {
       catController.reverse();
-      print('completed');
     } else if (catController.status == AnimationStatus.dismissed) {
       catController.forward();
-      print('dismissed');
     }
   }
 
@@ -23,11 +21,11 @@ class HomeState extends State<Home> with TickerProviderStateMixin {
     super.initState();
 
     catController = AnimationController(
-      duration: Duration(seconds: 1),
+      duration: Duration(milliseconds: 300),
       vsync: this,
     );
 
-    catAnimation = Tween(begin: 0.0, end: 100.0).animate(
+    catAnimation = Tween(begin: -33.0, end: -83.0).animate(
       CurvedAnimation(
         parent: catController,
         curve: Curves.easeIn,
@@ -41,22 +39,40 @@ class HomeState extends State<Home> with TickerProviderStateMixin {
         title: Text('Flutter Animation'),
       ),
       body: GestureDetector(
-        child: buildAnimations(),
+        child: Center(
+          child: Stack(
+            clipBehavior: Clip.none,
+            children: [
+              buildCatAnimation(),
+              buildBox(),
+            ],
+          ),
+        ),
         onTap: onTap,
       ),
     );
   }
 
-  Widget buildAnimations() {
+  Widget buildCatAnimation() {
     return AnimatedBuilder(
       animation: catAnimation,
       builder: (context, child) {
-        return Container(
+        return Positioned(
           child: child,
-          margin: EdgeInsets.only(top: catAnimation.value),
+          top: catAnimation.value,
+          right: 0.0,
+          left: 0.0,
         );
       },
       child: Cat(),
+    );
+  }
+
+  Widget buildBox() {
+    return Container(
+      height: 200.0,
+      width: 200.0,
+      color: Colors.teal,
     );
   }
 }

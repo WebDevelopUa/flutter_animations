@@ -13,7 +13,10 @@ A new Flutter pet-project.
 * [AnimatedBuilder class](https://api.flutter.dev/flutter/widgets/AnimatedBuilder-class.html)
 * [GestureDetector class](https://api.flutter.dev/flutter/widgets/GestureDetector-class.html)
 * [AnimationStatus enum](https://api.flutter.dev/flutter/animation/AnimationStatus-class.html)
-
+* [Container class](https://api.flutter.dev/flutter/widgets/Container-class.html)
+* [Layout widgets](https://flutter.dev/docs/development/ui/widgets/layout)
+* [Center class](https://api.flutter.dev/flutter/widgets/Center-class.html)
+* [Positioned class](https://api.flutter.dev/flutter/widgets/Positioned-class.html)
 
 
  --------
