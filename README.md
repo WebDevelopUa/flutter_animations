@@ -17,6 +17,7 @@ A new Flutter pet-project.
 * [Layout widgets](https://flutter.dev/docs/development/ui/widgets/layout)
 * [Center class](https://api.flutter.dev/flutter/widgets/Center-class.html)
 * [Positioned class](https://api.flutter.dev/flutter/widgets/Positioned-class.html)
+* [Transform.rotate constructor](https://api.flutter.dev/flutter/widgets/Transform/Transform.rotate.html)
 
 
  --------
