@@ -29,19 +29,19 @@ class HomeState extends State<Home> with TickerProviderStateMixin {
     );
 
     boxAnimation = Tween(
-      begin: 3.14 *0.6,
-      end: 3.14 *0.65,
+      begin: 3.14 * 0.6,
+      end: 3.14 * 0.65,
     ).animate(
       CurvedAnimation(
         parent: boxController,
-        curve: Curves.linear,
+        curve: Curves.easeInOutSine,
       ),
     );
 
     boxAnimation.addStatusListener((status) {
-      if(status == AnimationStatus.completed){
+      if (status == AnimationStatus.completed) {
         boxController.reverse();
-      } else if (status == AnimationStatus.dismissed){
+      } else if (status == AnimationStatus.dismissed) {
         boxController.forward();
       }
     });
@@ -73,6 +73,7 @@ class HomeState extends State<Home> with TickerProviderStateMixin {
               buildCatAnimation(),
               buildBox(),
               buildLeftFlap(),
+              buildRightFlap(),
             ],
           ),
         ),
@@ -119,6 +120,27 @@ class HomeState extends State<Home> with TickerProviderStateMixin {
             child: child,
             alignment: Alignment.topLeft,
             angle: boxAnimation.value,
+          );
+        },
+      ),
+    );
+  }
+
+  Widget buildRightFlap() {
+    return Positioned(
+      right: 3.0,
+      child: AnimatedBuilder(
+        animation: boxAnimation,
+        child: Container(
+          height: 10.0,
+          width: 125.0,
+          color: Colors.teal,
+        ),
+        builder: (context, child) {
+          return Transform.rotate(
+            child: child,
+            alignment: Alignment.topRight,
+            angle: -boxAnimation.value,
           );
         },
       ),
